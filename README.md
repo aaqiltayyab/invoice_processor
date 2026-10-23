@@ -62,7 +62,7 @@ pytest
 ## Human Correction & Retries
 
 - **Human Correction:** I would build a simple web dashboard (Django or FastAPI) where the extracted JSON and the original image are displayed side-by-side. Fields marked `needs_review = true` would be highlighted in red for a human operator to correct and submit.
-- **Retries:** If Tesseract returns empty or highly garbled text, I would add a retry mechanism using `OpenCV` to preprocess the image (grayscale, thresholding, deskewing) before passing it to the OCR engine again.
+- **Retries:** If Tesseract returns empty or highly garbled text, I would add a retry mechanism using OpenCV to preprocess the image (grayscale, thresholding, deskewing) before passing it to the OCR engine again.
 
 ---
 
@@ -70,7 +70,7 @@ pytest
 
 To expose the saved invoices using Django REST Framework (DRF):
 
-1. **Model:**
+**1. Model:**
 
 ```python
 class Invoice(models.Model):
@@ -87,14 +87,22 @@ class Invoice(models.Model):
 
 ```
 
-2. **Serializer (Validation):** Create an `InvoiceSerializer`. Inside `validate()`, I would add the logic: `if data['subtotal'] + data['tax'] != data['total']: raise serializers.ValidationError("Math mismatch")`.
-3. **List Endpoint:** Expose via `ListAPIView` allowing query parameters to filter by `vendor` or `is_reviewed` status.
-4. **Access Control:** Enforce security using `permission_classes = [IsAuthenticated]` (using JWT or Session auth) and ensure Row-Level Security if users belong to different tenant organizations.
+**2. Serializer (Validation):** Create an `InvoiceSerializer`. Inside `validate()`, I would add the logic: `if data['subtotal'] + data['tax'] != data['total']: raise serializers.ValidationError("Math mismatch")`.
+
+**3. List Endpoint:** Expose via `ListAPIView` allowing query parameters to filter by `vendor` or `is_reviewed` status.
+
+**4. Access Control:** Enforce security using `permission_classes = [IsAuthenticated]` (using JWT or Session auth) and ensure Row-Level Security if users belong to different tenant organizations.
 
 ---
 
 ## Past Python/Database Issue Resolved
 
 **Context:** While building a production-grade MCP (Model Context Protocol) Server pipeline for extracting structured JSON from complex unstructured PDFs, I encountered an issue where duplicate entity insertions were crashing the backend.
+
 **The Issue:** The database schema had strict constraints, and the extraction engine occasionally parsed the same document twice (e.g., due to network timeouts retrying the API call).
+
 **My Personal Contribution:** Instead of relying solely on Python-level checks (which fail in concurrent scenarios), I refactored the database schema to use composite `UNIQUE` constraints and implemented `INSERT ... ON CONFLICT DO NOTHING` (or `try/except sqlite3.IntegrityError` in SQLite) in the data ingestion script. This ensured idempotency—running the script 100 times on the same PDF yielded the exact same stable database state without throwing server 500 errors.
+
+```
+
+```
