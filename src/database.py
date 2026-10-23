@@ -1,5 +1,5 @@
 """
-Step 4 :
+Requirement 4 :
 Store valid invoices in SQLite... 
 Explain the duplicate key you choose. 
 Running the program twice must not insert duplicate invoice records. 

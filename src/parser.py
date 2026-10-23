@@ -1,5 +1,5 @@
 """
-Step 2 : 
+Requirement 2 : 
 Extract invoice number, vendor, invoice date, currency, subtotal, tax, and total. 
 Normalize dates and amounts. 
 Store amounts as integer paise rather than binary floating-point money.
@@ -45,7 +45,7 @@ def parse_invoice_text(raw_text: str) -> dict:
     """
     # Updated Patterns based on the exact image formats
     vendor_match = re.search(r"Vendor\s*[:\-]?\s*(.+)", raw_text, re.IGNORECASE)
-    invoice_no_match = re.search(r"Invoice\s*[:\-]?\s*([A-Z0-9\-]+)", raw_text, re.IGNORECASE)
+    invoice_no_match = re.search(r"Invoice:\s*([A-Z0-9\-]+)", raw_text, re.IGNORECASE)
     date_match = re.search(r"Date\s*[:\-]?\s*([0-9]{1,4}[-/ \.][A-Za-z0-9]+[-/ \.][0-9]{1,4})", raw_text, re.IGNORECASE)
     currency_match = re.search(r"Currency\s*[:\-]?\s*([A-Za-z]+)", raw_text, re.IGNORECASE)
     

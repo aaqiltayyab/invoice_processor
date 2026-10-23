@@ -1,5 +1,5 @@
 """
-Step 1 : 
+Requirement 1 : 
 Use a free/local OCR library (Tesseract)... 
 Save the raw OCR text alongside the source filename.
 """

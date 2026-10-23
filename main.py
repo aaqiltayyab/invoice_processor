@@ -1,5 +1,5 @@
 """
-Step 5 :
+Requirement 5 :
 Produce JSON or CSV containing extracted records, 
 validation results, review reasons, and source filenames. 
 A failed image must not stop every other file from processing.

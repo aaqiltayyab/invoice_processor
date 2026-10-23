@@ -1,5 +1,5 @@
 """
-Step 3 :
+Requirement 3 :
 Validate required fields and subtotal + tax = total. 
 Missing or ambiguous values must enter a needs_review output with a reason; 
 do not silently guess or discard them.
