@@ -49,7 +49,7 @@ def parse_invoice_text(raw_text: str) -> dict:
     date_match = re.search(r"Date\s*[:\-]?\s*([0-9]{1,4}[-/ \.][A-Za-z0-9]+[-/ \.][0-9]{1,4})", raw_text, re.IGNORECASE)
     currency_match = re.search(r"Currency\s*[:\-]?\s*([A-Za-z]+)", raw_text, re.IGNORECASE)
     
-    # \b ensures it only matches "Total", not "Subtotal"
+    # \b=WOrd Boundary, ensures it only matches "Total", not "Subtotal"
     subtotal_match = re.search(r"\bSubtotal\s*[:\-]?\s*([\d,\.]+)", raw_text, re.IGNORECASE)
     tax_match = re.search(r"\bTax\s*[:\-]?\s*([\d,\.]+)", raw_text, re.IGNORECASE)
     total_match = re.search(r"\bTotal\s*[:\-]?\s*([\d,\.]+)", raw_text, re.IGNORECASE)

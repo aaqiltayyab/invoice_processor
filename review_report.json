@@ -1,0 +1,66 @@
+[
+    {
+        "source_filename": "invoice-101-copy.png",
+        "extracted_record": {
+            "vendor": "ACME OFFICE SUPPLIES",
+            "invoice_number": "TNM-101",
+            "invoice_date": "2026-01-10",
+            "currency": "INR",
+            "subtotal": 120050,
+            "tax": 21609,
+            "total": 141659
+        },
+        "is_valid": true,
+        "needs_review": false,
+        "review_reasons": null,
+        "db_status": "Valid invoice saved to database. (File was already processed earlier)."
+    },
+    {
+        "source_filename": "invoice-101.png",
+        "extracted_record": {
+            "vendor": "Acme Office Supplies",
+            "invoice_number": "TNM-101",
+            "invoice_date": "2026-10-01",
+            "currency": "INR",
+            "subtotal": 120050,
+            "tax": 21609,
+            "total": 141659
+        },
+        "is_valid": true,
+        "needs_review": false,
+        "review_reasons": null,
+        "db_status": "Valid invoice saved to database. (File was already processed earlier)."
+    },
+    {
+        "source_filename": "invoice-102.png",
+        "extracted_record": {
+            "vendor": "Beta Print Studio",
+            "invoice_number": "TNM-102",
+            "invoice_date": "2026-10-02",
+            "currency": "INR",
+            "subtotal": 150000,
+            "tax": 27000,
+            "total": 177000
+        },
+        "is_valid": true,
+        "needs_review": false,
+        "review_reasons": null,
+        "db_status": "Valid invoice saved to database. (File was already processed earlier)."
+    },
+    {
+        "source_filename": "invoice-103-review.png",
+        "extracted_record": {
+            "vendor": "Gamma Paper Co",
+            "invoice_number": "TNM-103",
+            "invoice_date": null,
+            "currency": "INR",
+            "subtotal": 100000,
+            "tax": 18000,
+            "total": 117000
+        },
+        "is_valid": false,
+        "needs_review": true,
+        "review_reasons": "Missing or invalid field: invoice_date; Math mismatch: Subtotal (100000) + Tax (18000) != Total (117000)",
+        "db_status": "Invalid data. Needs review. (File was already processed earlier)."
+    }
+]
